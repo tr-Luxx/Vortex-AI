@@ -1,0 +1,7 @@
+{
+  "name": "Vortex",
+  "description": "A Perplexity-style AI answer engine powered by Gemini 2.5 Flash with real-time web grounding.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vortex AI Search</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        /* Light Mode Colors */
+        --bg-primary: #ffffff;
+        --bg-surface: #f3f4f6;
+        --bg-highlight: #e5e7eb;
+        --border-color: #e5e7eb;
+        --text-main: #111827;
+        --text-secondary: #6b7280;
+      }
+      .dark {
+        /* Dark Mode Colors */
+        --bg-primary: #0f0f12;
+        --bg-surface: #1e1e24;
+        --bg-highlight: #27272a;
+        --border-color: #27272a;
+        --text-main: #f3f4f6;
+        --text-secondary: #9ca3af;
+      }
+
+      body {
+        background-color: var(--bg-primary);
+        color: var(--text-main);
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg-primary); 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border-color); 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--bg-highlight); 
+      }
+      /* Markdown Styles */
+      .prose h1, .prose h2, .prose h3 { color: var(--text-main); font-weight: 600; margin-top: 1.5em; margin-bottom: 0.5em; }
+      .prose p { margin-bottom: 1em; line-height: 1.7; color: var(--text-main); opacity: 0.9; }
+      .prose ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1em; color: var(--text-main); }
+      .prose ol { list-style-type: decimal; padding-left: 1.5em; margin-bottom: 1em; color: var(--text-main); }
+      .prose code { background: var(--bg-highlight); padding: 0.2em 0.4em; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 0.9em; color: var(--text-main); }
+      .prose pre { background: var(--bg-surface); padding: 1em; border-radius: 8px; overflow-x: auto; margin-bottom: 1em; border: 1px solid var(--border-color); }
+      .prose pre code { background: transparent; padding: 0; color: var(--text-main); opacity: 0.8; }
+      .prose a { color: #2bb0ba; text-decoration: underline; text-underline-offset: 2px; }
+      .prose blockquote { border-left: 4px solid var(--bg-highlight); padding-left: 1em; font-style: italic; color: var(--text-secondary); }
+      .prose strong { color: var(--text-main); font-weight: 700; }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              background: 'var(--bg-primary)',
+              surface: 'var(--bg-surface)',
+              highlight: 'var(--bg-highlight)',
+              border: 'var(--border-color)',
+              textMain: 'var(--text-main)',
+              secondary: 'var(--text-secondary)',
+              primary: '#2bb0ba', // Teal/Cyan accent
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'fade-in': 'fadeIn 0.3s ease-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-markdown": "https://aistudiocdn.com/react-markdown@^10.1.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "remark-gfm": "https://aistudiocdn.com/remark-gfm@^4.0.1",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
